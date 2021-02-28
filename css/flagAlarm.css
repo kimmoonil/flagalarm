@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: table;
+}
+.nav {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.js-alarm{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+h3{
+    color:chocolate;
+}
+audio { display:none;}
+
+@font-face{
+    src: url("Maplestory\ Light.ttf");
+    font-family: "MapleLight";
+}
+body,h1,h3 {font-family: "MapleLight"}
+body, html {height: 100%}
+body {
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}

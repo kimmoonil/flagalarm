@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name='deviation' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='flagAlarm.css' type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> 
+    <link rel='stylesheet' href='flagAlarm.css' type="text/css">
+    <title>재획비 효율계산기</title>  
+    <script src ="/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#deviation_cal").click(function(){
+                $.ajax({
+                    url: '/deviation_cal',
+                    async : false,
+                    type : 'post',
+                    data: {
+                        killingRate : $("#killingRate").val(),
+                        monsterLv : $("#monsterLv").val(),
+                        potionPrice : $("#potionPrice").val(),
+                        item : $("#item").val(),
+                        ability : $("#ability").val(),
+                        phantom : $("#phantom").val(),
+                        unionbuff : $("#unionbuff").val()
+                    },
+                    dataType : 'json',
+                    success : function(data){
+                        alert("result" + data.result);
+                    },
+                    error: function(err){
+                        alert("실패");
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class='container'>
+        <div class="w3-display-topleft w3-padding-large w3-xlarge"  onclick="location.href='/'">
+            <small>플래그알리미</small>
+        </div>
+        <div class='js-alarm nav'>
+    <form>
+        <h1>재획 몇분부터 이득일까요?</h1>
+        마릿수<br>
+        <input type ="text" id = "killingRate" ><br>
+        몬스터 레벨<br>
+        <input type ="text" id = "monsterLv" ><br>
+        재획비 가격<br>
+        <input type ="text" id = "potionPrice" ><br>
+        템메획<br>
+        <input type ="text" id = "item" ><br>
+        어빌<br>
+        <input type ="text" id = "ability" ><br>
+        농장<br>
+        <input type ="text" id = "farm" ><br>
+        유니온팬텀 (없으면 0 , 140 - 4 , 200 - 5, 250- 6) <br>
+        <input type ="text" id ="phantom"><br>
+        유니온의부 (없으면 0 , 있으면 50) <br>
+        <input type ="text" id ="unionbuff"><br>
+        <br>
+        <input type="submit" id ="deviation_cal" class ="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large" value ="계산">
+    </form>
+        <div id = "cal_result">
+        </div>
+    </div>
+    </div>
+
+</body> 
+</html>
